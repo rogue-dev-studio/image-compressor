@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🖼️ Image Compressor - Kompres Gambar Online</title>
+    <meta name="description" content="Kompres gambar online gratis dan mudah digunakan. Kurangi ukuran file gambar tanpa kehilangan kualitas. Dukungan format JPG, PNG, WebP, dan GIF.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🖼️</text></svg>">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#10b981">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Image Compressor">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🖼️</span>
+                <h1>Image Compressor</h1>
+            </div>
+            <p class="subtitle">Kompres Gambar Online - Gratis dan Mudah Digunakan</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Upload Section -->
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Drag & Drop Gambar</h3>
+                        <p>atau <span class="upload-link">klik untuk memilih file</span></p>
+                        <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                        <div class="supported-formats">
+                            <span>Format yang didukung: JPG, PNG, WebP, GIF</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="upload-progress" id="uploadProgress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">0%</span>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div class="settings-section" id="settingsSection" style="display: none;">
+                <h3>⚙️ Pengaturan Kompresi</h3>
+                <div class="settings-grid">
+                    <div class="setting-item">
+                        <label for="qualitySlider">Kualitas Gambar</label>
+                        <div class="slider-container">
+                            <input type="range" id="qualitySlider" min="10" max="100" value="80" step="5">
+                            <span id="qualityValue">80%</span>
+                        </div>
+                        <small>Semakin tinggi kualitas, semakin besar ukuran file</small>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="maxWidth">Lebar Maksimal (px)</label>
+                        <input type="number" id="maxWidth" placeholder="Auto" min="100" max="4000">
+                        <small>Kosongkan untuk mempertahankan ukuran asli</small>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="maxHeight">Tinggi Maksimal (px)</label>
+                        <input type="number" id="maxHeight" placeholder="Auto" min="100" max="4000">
+                        <small>Kosongkan untuk mempertahankan ukuran asli</small>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="outputFormat">Format Output</label>
+                        <select id="outputFormat">
+                            <option value="original">Format Asli</option>
+                            <option value="jpeg">JPEG</option>
+                            <option value="png">PNG</option>
+                            <option value="webp">WebP</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-item">
+                        <label for="preserveMetadata">Pertahankan Metadata</label>
+                        <input type="checkbox" id="preserveMetadata" checked>
+                        <small>EXIF data, tanggal, dll.</small>
+                    </div>
+                </div>
+                
+                <div class="settings-actions">
+                    <button id="compressAllBtn" class="primary-button">
+                        <span class="btn-icon">🗜️</span>
+                        Kompres Semua
+                    </button>
+                    <button id="resetSettingsBtn" class="secondary-button">
+                        <span class="btn-icon">🔄</span>
+                        Reset Pengaturan
+                    </button>
+                </div>
+            </div>
+
+            <!-- Images Preview Section -->
+            <div class="images-section" id="imagesSection" style="display: none;">
+                <div class="section-header">
+                    <h3>📸 Gambar yang Dipilih</h3>
+                    <div class="section-actions">
+                        <button id="selectAllBtn" class="action-button">Pilih Semua</button>
+                        <button id="clearAllBtn" class="action-button secondary">Hapus Semua</button>
+                    </div>
+                </div>
+                
+                <div class="images-grid" id="imagesGrid">
+                    <!-- Images will be added here -->
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="section-header">
+                    <h3>✅ Hasil Kompresi</h3>
+                    <div class="section-actions">
+                        <button id="downloadAllBtn" class="primary-button">
+                            <span class="btn-icon">📥</span>
+                            Download Semua
+                        </button>
+                        <button id="clearResultsBtn" class="secondary-button">
+                            <span class="btn-icon">🗑️</span>
+                            Hapus Hasil
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="results-summary" id="resultsSummary">
+                    <!-- Summary will be added here -->
+                </div>
+                
+                <div class="results-grid" id="resultsGrid">
+                    <!-- Results will be added here -->
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-main">
+                    <p>&copy; 2024 Image Compressor. Dibuat dengan ❤️ untuk komunitas.</p>
+                    <div class="footer-credits">
+                        <p>Powered by <a href="https://omeans-team.github.io" target="_blank" class="omeans-link">OMEANS Team</a></p>
+                        <p>Developed by <a href="https://omeans-team.github.io" target="_blank" class="developer-link">Aris Hadisopiyan</a></p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#" id="shareButton" class="footer-link">Bagikan</a>
+                    <a href="#" id="exportButton" class="footer-link">Ekspor</a>
+                    <a href="#" id="importButton" class="footer-link">Impor</a>
+                    <a href="https://omeans-team.github.io" target="_blank" class="footer-link">OMEANS</a>
+                    <a href="https://omeans-team.github.io/#contact" target="_blank" class="footer-link">Kontak</a>
+                    <a href="https://github.com/omeans-team/image-compressor/blob/main/about.md" target="_blank" class="footer-link">Tentang</a>
+                </div>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-info">
+                <p>© 2024 OMEANS Team. All rights reserved.</p>
+                <p>Lead Full-Stack Developer & Game Developer based in Indonesia</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p id="loadingText">Memproses gambar...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
