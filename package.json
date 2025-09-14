@@ -1,0 +1,89 @@
+{
+  "name": "image-compressor",
+  "version": "1.0.0",
+  "description": "Aplikasi kompresi gambar online gratis dan mudah digunakan. Kurangi ukuran file gambar tanpa kehilangan kualitas. Dukungan format JPG, PNG, WebP, dan GIF.",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8080 -o",
+    "dev": "npx live-server --port=8080 --open=/",
+    "build": "echo 'No build process needed - static files only'",
+    "deploy": "echo 'Deploy to GitHub Pages: git push origin main'",
+    "test": "echo 'No tests specified'",
+    "lint": "echo 'No linting configured'",
+    "format": "echo 'No formatting configured'"
+  },
+  "keywords": [
+    "image-compression",
+    "image-optimization",
+    "file-compression",
+    "pwa",
+    "web-app",
+    "javascript",
+    "html5",
+    "css3",
+    "canvas-api",
+    "image-processing",
+    "photo-editor",
+    "file-size-reduction"
+  ],
+  "author": "OMEANS Team <contact@omeans-team.github.io>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/omeans-team/image-compressor.git"
+  },
+  "bugs": {
+    "url": "https://github.com/omeans-team/image-compressor/issues"
+  },
+  "homepage": "https://omeans-team.github.io/image-compressor",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "pwa": {
+    "name": "Image Compressor",
+    "short_name": "Image Compressor",
+    "description": "Kompres gambar online gratis dan mudah digunakan",
+    "theme_color": "#10b981",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "orientation": "portrait-primary",
+    "scope": "/",
+    "start_url": "/"
+  },
+  "features": [
+    "Drag & Drop Upload",
+    "Multiple Image Support",
+    "Quality Control",
+    "Dimension Resizing",
+    "Format Conversion",
+    "Batch Processing",
+    "Progress Tracking",
+    "Download Management",
+    "Settings Persistence",
+    "PWA Support",
+    "Responsive Design",
+    "Dark Mode Support"
+  ],
+  "supportedFormats": [
+    "JPEG",
+    "PNG",
+    "WebP",
+    "GIF"
+  ],
+  "compressionMethods": [
+    "Canvas API",
+    "Quality Adjustment",
+    "Dimension Resizing",
+    "Format Optimization"
+  ]
+}
