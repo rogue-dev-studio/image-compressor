@@ -189,16 +189,17 @@ class ImageCompressor {
                 </div>
                 <div class="image-actions">
                     <button class="action-button" onclick="imageCompressor.compressSingleImage('${imageData.id}')">
-                        <span class="btn-icon">🗜️</span>
+                        <i data-lucide="minimize-2" class="btn-icon" aria-hidden="true"></i>
                         Kompres
                     </button>
                     <button class="action-button secondary" onclick="imageCompressor.removeImage('${imageData.id}')">
-                        <span class="btn-icon">🗑️</span>
+                        <i data-lucide="trash-2" class="btn-icon" aria-hidden="true"></i>
                         Hapus
                     </button>
                 </div>
             </div>
         `;
+        if (window.lucide) lucide.createIcons();
         return card;
     }
 
@@ -216,6 +217,7 @@ class ImageCompressor {
             const resultCard = this.createResultCard(result);
             this.resultsGrid.appendChild(resultCard);
         });
+        if (window.lucide) lucide.createIcons();
     }
 
     createResultCard(result) {
@@ -244,11 +246,11 @@ class ImageCompressor {
                 </div>
                 <div class="result-actions">
                     <button class="primary-button" onclick="imageCompressor.downloadResult('${result.id}')">
-                        <span class="btn-icon">📥</span>
+                        <i data-lucide="download" class="btn-icon" aria-hidden="true"></i>
                         Download
                     </button>
                     <button class="action-button" onclick="imageCompressor.previewResult('${result.id}')">
-                        <span class="btn-icon">👁️</span>
+                        <i data-lucide="eye" class="btn-icon" aria-hidden="true"></i>
                         Preview
                     </button>
                 </div>
@@ -546,7 +548,7 @@ class ImageCompressor {
             <div class="modal-content">
                 <div class="modal-header">
                     <h3 class="modal-title">${name}</h3>
-                    <button class="modal-close" onclick="this.closest('.preview-modal').remove()">✕</button>
+                    <button class="modal-close" onclick="this.closest('.preview-modal').remove()" aria-label="Tutup">&times;</button>
                 </div>
                 
                 <div class="modal-info">
@@ -566,11 +568,11 @@ class ImageCompressor {
                         link.click();
                         this.closest('.preview-modal').remove();
                     ">
-                        <span>📥</span>
+                        <i data-lucide="download" aria-hidden="true"></i>
                         Download
                     </button>
                     <button class="modal-btn modal-btn-secondary" onclick="this.closest('.preview-modal').remove()">
-                        <span>✕</span>
+                        <i data-lucide="x" aria-hidden="true"></i>
                         Tutup
                     </button>
                 </div>
