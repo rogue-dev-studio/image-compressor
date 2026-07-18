@@ -568,14 +568,14 @@ body {
     margin-bottom: 0.25rem;
 }
 
-.omeans-link,
+.studio-link,
 .developer-link {
     color: var(--primary-color);
     text-decoration: none;
     font-weight: 500;
 }
 
-.omeans-link:hover,
+.studio-link:hover,
 .developer-link:hover {
     text-decoration: underline;
 }
