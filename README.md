@@ -1,20 +1,23 @@
 # Image Compressor
 
-Shrink JPG, PNG, WebP, or GIF without sending files anywhere — compression happens in the tab.
+Shrink JPG, PNG, WebP, or GIF in the tab — nothing is uploaded.
 
-Handy before you upload to a site, marketplace, or social feed.
+![Screenshot](github-contents/screenshot.png)
 
-By [Aris Hadisopiyan](https://rogue-dev-studio.github.io/) / Rogue Dev Studio.
+**Live demo:** [https://rogue-dev-studio.github.io/image-compressor/](https://rogue-dev-studio.github.io/image-compressor/)
 
-## Notes
-- Drag in one or many images, set quality/size, download the result
-- Lossy modes trade detail for smaller files; try ~70–85% and look at the preview
+## Highlights
+- Drag one or many images
+- Tune quality and max size
+- Download the result
 
 ## Run
-Open `index.html` locally (Live Server: `http://localhost:5500/...`).
+Open `index.html` locally (Live Server on port **5500**), or use the live demo above.
 
 ```bash
 git clone https://github.com/rogue-dev-studio/image-compressor.git
 ```
+
+By [Aris Hadisopiyan](https://rogue-dev-studio.github.io/) / Rogue Dev Studio.
 
 MIT
